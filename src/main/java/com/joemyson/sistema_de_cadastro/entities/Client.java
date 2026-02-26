@@ -1,5 +1,6 @@
 package com.joemyson.sistema_de_cadastro.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 
 @Entity
 @Table(name="tb_client")
@@ -17,12 +19,12 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="nome")
-	private String name;
-	
+	private String nameClient;
+    @Email
 	private String email;
 	
 	@Column(name="dataCadastro")
-	private Integer registrationDate;
+	private LocalDate registrationDate;
 	
 	
 	
@@ -34,10 +36,10 @@ public class Client {
 
 
 
-	public Client(Long id, String name, String email, Integer registrationDate) {
+	public Client(Long id, String nameClient, String email, LocalDate registrationDate) {
 	
 		this.id = id;
-		this.name = name;
+		this.nameClient = nameClient;
 		this.email = email;
 		this.registrationDate = registrationDate;
 	}
@@ -59,15 +61,15 @@ public class Client {
 
 
 
-	public String getName() {
-		return name;
+	public String getNameClient() {
+		return nameClient;
 	}
 
 
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNameClient(String nameClient) {
+		this.nameClient = nameClient;
 	}
 
 
@@ -87,14 +89,14 @@ public class Client {
 
 
 
-	public Integer getRegistrationDate() {
+	public LocalDate getRegistrationDate() {
 		return registrationDate;
 	}
 
 
 
 
-	public void setRegistrationDate(Integer registrationDate) {
+	public void setRegistrationDate(LocalDate registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 

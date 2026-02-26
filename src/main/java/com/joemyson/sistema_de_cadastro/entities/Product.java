@@ -1,5 +1,6 @@
 package com.joemyson.sistema_de_cadastro.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -26,8 +27,8 @@ public class Product {
 	private Double value;
 	@Column(name="quantidade")
 	private Integer amount;
-	@Column(name="dataDeCadastro")
-	private Integer registrationDateProduct;
+	@Column(name="dataDeCadastro")	
+	private LocalDate registrationDateProduct;
 	
 	
 	public Product() {
@@ -36,7 +37,7 @@ public class Product {
 
 
 	public Product(Long id, String nameProduct, String description, Double value, Integer amount,
-			Integer registrationDateProduct) {
+			LocalDate registrationDateProduct) {
 		
 		this.id = id;
 		this.nameProduct = nameProduct;
@@ -97,12 +98,12 @@ public class Product {
 	}
 
 
-	public Integer getRegistrationDateProduct() {
+	public LocalDate getRegistrationDateProduct() {
 		return registrationDateProduct;
 	}
 
 
-	public void setRegistrationDateProduct(Integer registrationDateProduct) {
+	public void setRegistrationDateProduct(LocalDate registrationDateProduct) {
 		this.registrationDateProduct = registrationDateProduct;
 	}
 
